@@ -1,0 +1,10 @@
+# Cloudflare Pages reads this file automatically from the project root.
+# It's not required to fix the CSS-loading bug (that was a relative-path
+# issue in the HTML/JS, now fixed) — this just adds sensible caching for
+# static assets on repeat visits.
+
+/css/*
+  Cache-Control: public, max-age=3600
+
+/js/*
+  Cache-Control: public, max-age=3600

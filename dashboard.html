@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard — BizGrow AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+<body>
+
+<div class="mobile-topbar">
+  <button id="menuToggle" aria-label="Open menu" style="background:none;border:none;color:#fff;font-size:1.3rem;">☰</button>
+  <div class="brand" style="color:#fff;"><span class="brand-mark">BG</span> BizGrow AI</div>
+  <span></span>
+</div>
+<div class="sidebar-scrim" id="scrim"></div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <a href="/index.html" class="brand"><span class="brand-mark">BG</span> BizGrow AI</a>
+    <ul class="side-nav" id="sideNav">
+      <li><button data-view="home" class="active"><span class="icon">🏠</span> Dashboard</button></li>
+      <li><button data-view="business"><span class="icon">🏪</span> My Business</button></li>
+      <li><hr></li>
+      <li><button data-view="ai-content"><span class="icon">✨</span> AI Content</button></li>
+      <li><button data-view="social"><span class="icon">📱</span> Social Media</button></li>
+      <li><button data-view="ads"><span class="icon">📢</span> Advertisements</button></li>
+      <li><button data-view="whatsapp"><span class="icon">💬</span> WhatsApp Marketing</button></li>
+      <li><button data-view="reels"><span class="icon">🎬</span> Reel Scripts</button></li>
+      <li><button data-view="advisor"><span class="icon">🤖</span> AI Business Advisor</button></li>
+      <li><hr></li>
+      <li><button data-view="library"><span class="icon">🗂️</span> Saved Content</button></li>
+      <li><button data-view="analytics"><span class="icon">📊</span> Analytics</button></li>
+      <li><hr></li>
+      <li><button data-view="pricing"><span class="icon">💳</span> Pricing</button></li>
+      <li><button data-view="settings"><span class="icon">⚙️</span> Settings</button></li>
+    </ul>
+    <div class="sidebar-foot">
+      <button id="logoutBtn"><span class="icon">↪</span> Logout</button>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- ================= HOME ================= -->
+    <section class="view active" id="view-home">
+      <div id="trialBannerHome"></div>
+
+      <div class="biz-summary" id="bizSummary">
+        <div class="avatar" id="bizAvatar">?</div>
+        <div>
+          <h2 id="bizName">Complete your business profile</h2>
+          <span id="bizCategory">No business added yet</span>
+        </div>
+      </div>
+
+      <div class="view-head">
+        <div>
+          <h1>Welcome, <span id="welcomeName">there</span> 👋</h1>
+          <p class="sub">What would you like to create today?</p>
+        </div>
+      </div>
+
+      <div class="action-grid">
+        <button class="action-card" data-goto="social" data-type="Instagram Post"><span class="emoji">📱</span><h3>Social Media Post</h3><p>Create an engaging post</p></button>
+        <button class="action-card" data-goto="ads"><span class="emoji">📢</span><h3>Advertisement</h3><p>Create an advertisement</p></button>
+        <button class="action-card" data-goto="whatsapp"><span class="emoji">💬</span><h3>WhatsApp Marketing</h3><p>Create a promotional message</p></button>
+        <button class="action-card" data-goto="reels"><span class="emoji">🎬</span><h3>Reel Script</h3><p>Create a short video script</p></button>
+        <button class="action-card" data-goto="ai-content" data-type="Promotional Caption"><span class="emoji">✍️</span><h3>Caption</h3><p>Create a social media caption</p></button>
+        <button class="action-card" data-goto="ai-content" data-type="Festival Offer"><span class="emoji">🎉</span><h3>Offer Generator</h3><p>Create a special offer</p></button>
+        <button class="action-card" data-goto="advisor"><span class="emoji">🤖</span><h3>AI Business Advisor</h3><p>Ask AI how to grow your business</p></button>
+      </div>
+    </section>
+
+    <!-- ================= MY BUSINESS ================= -->
+    <section class="view" id="view-business">
+      <div class="view-head">
+        <div><h1>My Business</h1><p class="sub">This information helps AI create content that fits your business.</p></div>
+      </div>
+      <div class="form-msg" id="bizFormMsg"></div>
+      <form id="businessForm" class="panel" novalidate>
+        <div class="form-grid">
+          <div class="field full" id="bf-business_name"><label>Business Name *</label><input id="b_business_name" /><span class="err-msg"></span></div>
+          <div class="field" id="bf-category"><label>Business Category *</label>
+            <select id="b_category">
+              <option value="">Select category</option>
+              <option>Restaurant</option><option>Cafe</option><option>Salon</option><option>Gym</option>
+              <option>Clothing Store</option><option>Clinic</option><option>Coaching Institute</option>
+              <option>Local Shop</option><option>Service Business</option><option>Other</option>
+            </select>
+            <span class="err-msg"></span>
+          </div>
+          <div class="field" id="bf-owner_name"><label>Owner Name *</label><input id="b_owner_name" /><span class="err-msg"></span></div>
+          <div class="field" id="bf-phone"><label>Phone Number *</label><input id="b_phone" /><span class="err-msg"></span></div>
+          <div class="field" id="bf-whatsapp"><label>WhatsApp Number *</label><input id="b_whatsapp" /><span class="err-msg"></span></div>
+          <div class="field" id="bf-email"><label>Business Email</label><input id="b_email" type="email" /></div>
+          <div class="field" id="bf-website"><label>Website</label><input id="b_website" /></div>
+          <div class="field full" id="bf-address"><label>Business Address</label><input id="b_address" /></div>
+          <div class="field" id="bf-city"><label>City *</label><input id="b_city" /><span class="err-msg"></span></div>
+          <div class="field" id="bf-state"><label>State *</label><input id="b_state" /><span class="err-msg"></span></div>
+          <div class="field" id="bf-instagram"><label>Instagram</label><input id="b_instagram" /></div>
+          <div class="field" id="bf-facebook"><label>Facebook</label><input id="b_facebook" /></div>
+          <div class="field full" id="bf-description"><label>Business Description</label><textarea id="b_description" rows="3"></textarea></div>
+          <div class="field full" id="bf-products"><label>Products / Services *</label><textarea id="b_products_services" rows="2"></textarea><span class="err-msg"></span></div>
+          <div class="field full" id="bf-audience"><label>Target Customers</label><input id="b_target_customers" /></div>
+        </div>
+        <div style="text-align:right; margin-top:20px;">
+          <button type="submit" class="btn btn-primary" id="bizSaveBtn">Save Changes</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ================= AI CONTENT GENERATOR ================= -->
+    <section class="view" id="view-ai-content">
+      <div class="view-head">
+        <div><h1>AI Content Generator</h1><p class="sub">What do you want to create?</p></div>
+      </div>
+      <div class="gen-layout">
+        <div class="panel">
+          <div class="field">
+            <label>Content type</label>
+            <div class="chip-select" id="contentTypeChips">
+              <button data-val="Instagram Post" class="active">Instagram Post</button>
+              <button data-val="Facebook Post">Facebook Post</button>
+              <button data-val="WhatsApp Message">WhatsApp Message</button>
+              <button data-val="Advertisement">Advertisement</button>
+              <button data-val="Reel Script">Reel Script</button>
+              <button data-val="Product Description">Product Description</button>
+              <button data-val="Festival Offer">Festival Offer</button>
+              <button data-val="Promotional Caption">Promotional Caption</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="gc_topic">Topic / Product</label>
+            <input id="gc_topic" placeholder="e.g. New winter menu, haircut offer..." />
+          </div>
+          <div class="field">
+            <label for="gc_offer">Offer (optional)</label>
+            <input id="gc_offer" placeholder="e.g. 20% off, buy 1 get 1" />
+          </div>
+          <div class="field">
+            <label for="gc_audience">Target Audience (optional)</label>
+            <input id="gc_audience" placeholder="e.g. college students nearby" />
+          </div>
+          <div class="field">
+            <label>Tone</label>
+            <div class="chip-select" id="toneChips">
+              <button data-val="Professional" class="active">Professional</button>
+              <button data-val="Friendly">Friendly</button>
+              <button data-val="Attractive">Attractive</button>
+              <button data-val="Premium">Premium</button>
+              <button data-val="Local">Local</button>
+              <button data-val="Urgent">Urgent</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Language</label>
+            <div class="lang-mini" id="langChips">
+              <button data-val="English" class="active">English</button>
+              <button data-val="Hindi">हिंदी</button>
+              <button data-val="Hinglish">Hinglish</button>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" id="generateBtn" style="margin-top:8px;">Generate with AI</button>
+        </div>
+
+        <div class="result-card" id="resultCard">
+          <p class="result-placeholder">Your generated content will appear here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SOCIAL MEDIA ================= -->
+    <section class="view" id="view-social">
+      <div class="view-head">
+        <div><h1>Social Media Generator</h1><p class="sub">Pick a platform — get content tailored to it.</p></div>
+      </div>
+      <div class="gen-layout">
+        <div class="panel">
+          <div class="field">
+            <label>Platform</label>
+            <div class="chip-select" id="platformChips">
+              <button data-val="Instagram" class="active">Instagram</button>
+              <button data-val="Facebook">Facebook</button>
+              <button data-val="LinkedIn">LinkedIn</button>
+              <button data-val="WhatsApp">WhatsApp</button>
+            </div>
+          </div>
+          <div class="field"><label for="sm_topic">Topic / Product</label><input id="sm_topic" placeholder="What's this post about?" /></div>
+          <div class="field"><label for="sm_offer">Offer (optional)</label><input id="sm_offer" /></div>
+          <div class="field">
+            <label>Tone</label>
+            <div class="chip-select" id="smToneChips">
+              <button data-val="Professional">Professional</button>
+              <button data-val="Friendly" class="active">Friendly</button>
+              <button data-val="Attractive">Attractive</button>
+              <button data-val="Premium">Premium</button>
+              <button data-val="Local">Local</button>
+              <button data-val="Urgent">Urgent</button>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" id="smGenerateBtn" style="margin-top:8px;">Generate with AI</button>
+        </div>
+        <div class="result-card" id="smResultCard">
+          <p class="result-placeholder">Your generated post will appear here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ADVERTISEMENTS ================= -->
+    <section class="view" id="view-ads">
+      <div class="view-head">
+        <div><h1>Advertisement Generator</h1><p class="sub">Turn a product or offer into ad-ready copy.</p></div>
+      </div>
+      <div class="gen-layout">
+        <div class="panel">
+          <div class="field"><label for="ad_product">Product / Service *</label><input id="ad_product" placeholder="e.g. Gym membership" /></div>
+          <div class="field"><label for="ad_price">Price</label><input id="ad_price" placeholder="e.g. ₹999/month" /></div>
+          <div class="field"><label for="ad_discount">Discount</label><input id="ad_discount" placeholder="e.g. 30% off" /></div>
+          <div class="field"><label for="ad_offer">Offer</label><input id="ad_offer" placeholder="e.g. Free 1st week trial" /></div>
+          <div class="field"><label for="ad_audience">Target Audience</label><input id="ad_audience" placeholder="e.g. working professionals" /></div>
+          <button class="btn btn-primary btn-block" id="adGenerateBtn" style="margin-top:8px;">Generate with AI</button>
+        </div>
+        <div class="result-card" id="adResultCard">
+          <p class="result-placeholder">Your generated advertisement will appear here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHATSAPP MARKETING ================= -->
+    <section class="view" id="view-whatsapp">
+      <div class="view-head">
+        <div><h1>WhatsApp Marketing</h1><p class="sub">Ready-to-use templates for your WhatsApp Business.</p></div>
+      </div>
+      <div class="template-grid" id="waTemplateGrid"></div>
+      <div class="panel" style="margin-top:18px; display:none;" id="waResultPanel">
+        <div class="result-card" id="waResultCard"></div>
+      </div>
+    </section>
+
+    <!-- ================= REEL SCRIPTS ================= -->
+    <section class="view" id="view-reels">
+      <div class="view-head">
+        <div><h1>Reel Script Generator</h1><p class="sub">A short-video script, scene by scene.</p></div>
+      </div>
+      <div class="gen-layout">
+        <div class="panel">
+          <div class="field"><label for="rs_product">Product / Service *</label><input id="rs_product" placeholder="What's the reel about?" /></div>
+          <div class="field"><label for="rs_topic">Topic</label><input id="rs_topic" placeholder="e.g. Behind the scenes, new arrival" /></div>
+          <div class="field">
+            <label>Duration</label>
+            <div class="chip-select" id="durationChips">
+              <button data-val="15 seconds">15 seconds</button>
+              <button data-val="30 seconds" class="active">30 seconds</button>
+              <button data-val="60 seconds">60 seconds</button>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" id="reelGenerateBtn" style="margin-top:8px;">Generate with AI</button>
+        </div>
+        <div class="result-card" id="reelResultCard">
+          <p class="result-placeholder">Your reel script will appear here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= AI ADVISOR ================= -->
+    <section class="view" id="view-advisor">
+      <div class="view-head">
+        <div><h1>Ask Your AI Business Advisor</h1><p class="sub">Answers use your saved business information.</p></div>
+      </div>
+      <div class="chat-window">
+        <div class="chat-log" id="chatLog"></div>
+        <div class="chat-suggest" id="chatSuggest">
+          <button data-q="How can I get more customers?">How can I get more customers?</button>
+          <button data-q="How can I promote my business?">How can I promote my business?</button>
+          <button data-q="Give me 10 Instagram ideas.">Give me 10 Instagram ideas.</button>
+          <button data-q="How can I increase repeat customers?">How can I increase repeat customers?</button>
+          <button data-q="Create a 30-day marketing plan.">Create a 30-day marketing plan.</button>
+          <button data-q="What offer should I run this week?">What offer should I run this week?</button>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" placeholder="Ask anything about growing your business..." />
+          <button class="btn btn-primary btn-sm" id="chatSendBtn">Ask</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SAVED CONTENT ================= -->
+    <section class="view" id="view-library">
+      <div class="view-head">
+        <div><h1>Saved Content</h1><p class="sub">Everything you've generated and saved.</p></div>
+      </div>
+      <div class="lib-toolbar">
+        <input type="search" id="libSearch" placeholder="Search saved content..." />
+        <select id="libFilter">
+          <option value="">All categories</option>
+          <option value="Social Posts">Social Posts</option>
+          <option value="Advertisements">Advertisements</option>
+          <option value="WhatsApp">WhatsApp</option>
+          <option value="Reel Scripts">Reel Scripts</option>
+          <option value="Captions">Captions</option>
+          <option value="Offers">Offers</option>
+        </select>
+      </div>
+      <div id="libraryContent"></div>
+    </section>
+
+    <!-- ================= ANALYTICS ================= -->
+    <section class="view" id="view-analytics">
+      <div class="view-head">
+        <div><h1>Analytics</h1><p class="sub">Your real usage — nothing simulated.</p></div>
+      </div>
+      <div class="stat-grid" id="statGrid"></div>
+      <div class="panel">
+        <h3 style="margin-bottom:16px; font-size:0.95rem;">Content created by type</h3>
+        <div class="bar-chart" id="barChart"></div>
+      </div>
+    </section>
+
+    <!-- ================= PRICING ================= -->
+    <section class="view" id="view-pricing">
+      <div class="view-head">
+        <div><h1>Pricing</h1><p class="sub">Your trial status and available plans.</p></div>
+      </div>
+      <div id="trialBannerPricing"></div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <div class="price-amt">₹199<span>/month</span></div>
+          <ul class="price-list">
+            <li>AI Content Generator</li><li>Social Media Posts</li><li>WhatsApp Marketing</li>
+            <li>Advertisement Generator</li><li>Reel Scripts</li><li>Basic Business Advisor</li>
+          </ul>
+          <button class="btn btn-ghost btn-block" disabled>Coming Soon</button>
+        </div>
+        <div class="price-card featured">
+          <h3>Growth</h3>
+          <div class="price-amt">₹399<span>/month</span></div>
+          <ul class="price-list">
+            <li>Everything in Starter</li><li>More AI generations</li><li>Advanced marketing tools</li>
+            <li>Content calendar</li><li>Business analytics</li><li>More campaigns</li>
+          </ul>
+          <button class="btn btn-dark btn-block" disabled>Coming Soon</button>
+        </div>
+        <div class="price-card">
+          <h3>Business</h3>
+          <div class="price-amt">₹799<span>/month</span></div>
+          <ul class="price-list">
+            <li>Everything in Growth</li><li>Multiple business profiles</li><li>Advanced analytics</li>
+            <li>Marketing automation</li><li>Priority features</li>
+          </ul>
+          <button class="btn btn-ghost btn-block" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SETTINGS ================= -->
+    <section class="view" id="view-settings">
+      <div class="view-head">
+        <div><h1>Settings</h1><p class="sub">Manage your profile, business and account.</p></div>
+      </div>
+      <div class="settings-tabs">
+        <button data-tab="profile" class="active">My Profile</button>
+        <button data-tab="account">Account</button>
+        <button data-tab="language">Language</button>
+      </div>
+
+      <div class="settings-pane active" id="pane-profile">
+        <div class="form-msg" id="profileFormMsg"></div>
+        <form id="profileForm" class="panel" novalidate>
+          <div class="form-grid">
+            <div class="field" id="pf-name"><label>Name</label><input id="p_name" /></div>
+            <div class="field" id="pf-email"><label>Email</label><input id="p_email" disabled /></div>
+            <div class="field" id="pf-phone"><label>Phone</label><input id="p_phone" /></div>
+          </div>
+          <div style="text-align:right; margin-top:18px;"><button class="btn btn-primary" type="submit">Save Profile</button></div>
+        </form>
+      </div>
+
+      <div class="settings-pane" id="pane-account">
+        <div class="panel">
+          <p><strong style="color:var(--ink);">Current Plan:</strong> <span id="acctPlan">—</span></p>
+          <p><strong style="color:var(--ink);">Trial Status:</strong> <span id="acctStatus">—</span></p>
+          <p style="margin-bottom:0;"><strong style="color:var(--ink);">Trial End Date:</strong> <span id="acctTrialEnd">—</span></p>
+        </div>
+      </div>
+
+      <div class="settings-pane" id="pane-language">
+        <div class="panel">
+          <p>Choose the language AI-generated content should use by default.</p>
+          <div class="lang-mini" id="settingsLangChips">
+            <button data-val="English" class="active">English</button>
+            <button data-val="Hindi">हिंदी</button>
+            <button data-val="Hinglish">Hinglish</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/supabaseClient.js" defer></script>
+<script src="/js/utils.js" defer></script>
+<script src="/js/ai.js" defer></script>
+<script src="/js/dashboard.js" defer></script>
+<script src="/js/content.js" defer></script>
+</body>
+</html>

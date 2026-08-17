@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Log in — BizGrow AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div class="auth-wrap">
+  <div class="auth-visual">
+    <a href="/index.html" class="brand" style="color:#fff;"><span class="brand-mark">BG</span> BizGrow AI</a>
+    <div>
+      <p class="quote">"I used to spend an hour writing one Instagram caption. Now I get five options in a minute."</p>
+      <p class="quote-by">A BizGrow AI USER, CAFE OWNER</p>
+    </div>
+  </div>
+
+  <div class="auth-form-side">
+    <div class="auth-box">
+      <h1>Welcome back</h1>
+      <p class="sub">Log in to your BizGrow AI dashboard.</p>
+
+      <div class="form-msg" id="formMsg"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="field" id="f-email">
+          <label for="email">Email</label>
+          <input type="email" id="email" autocomplete="email" placeholder="you@business.com" />
+          <span class="err-msg"></span>
+        </div>
+        <div class="field" id="f-password">
+          <label for="password">Password</label>
+          <input type="password" id="password" autocomplete="current-password" placeholder="Your password" />
+          <span class="err-msg"></span>
+        </div>
+        <div class="auth-links-row">
+          <span></span>
+          <a href="/forgot-password.html">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Log In</button>
+      </form>
+
+      <p class="auth-alt">New to BizGrow AI? <a href="/signup.html">Start your free trial</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/supabaseClient.js" defer></script>
+<script src="/js/utils.js" defer></script>
+<script src="/js/auth.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Set up your business — BizGrow AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+<body style="background:var(--paper);">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand"><span class="brand-mark">BG</span> BizGrow AI</a>
+    <span class="eyebrow">Step 2 of 2 · Business setup</span>
+  </div>
+</nav>
+
+<div class="container" style="max-width:760px; padding-top:44px; padding-bottom:70px;">
+  <h1>Let's Set Up Your Business</h1>
+  <p style="margin-bottom:26px;">This helps AI create content that actually fits your business. Takes about a minute.</p>
+
+  <div class="form-msg" id="formMsg"></div>
+
+  <form id="onboardingForm" class="panel" novalidate>
+    <div class="form-grid">
+      <div class="field full" id="f-business_name">
+        <label for="business_name">Business Name *</label>
+        <input type="text" id="business_name" placeholder="e.g. Sharma Sweets" />
+        <span class="err-msg"></span>
+      </div>
+
+      <div class="field" id="f-category">
+        <label for="category">Business Category *</label>
+        <select id="category">
+          <option value="">Select category</option>
+          <option>Restaurant</option>
+          <option>Cafe</option>
+          <option>Salon</option>
+          <option>Gym</option>
+          <option>Clothing Store</option>
+          <option>Clinic</option>
+          <option>Coaching Institute</option>
+          <option>Local Shop</option>
+          <option>Service Business</option>
+          <option>Other</option>
+        </select>
+        <span class="err-msg"></span>
+      </div>
+      <div class="field" id="f-owner_name">
+        <label for="owner_name">Owner Name *</label>
+        <input type="text" id="owner_name" placeholder="e.g. Rajesh Sharma" />
+        <span class="err-msg"></span>
+      </div>
+
+      <div class="field" id="f-phone">
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" placeholder="10-digit mobile number" />
+        <span class="err-msg"></span>
+      </div>
+      <div class="field" id="f-whatsapp">
+        <label for="whatsapp">WhatsApp Number *</label>
+        <input type="tel" id="whatsapp" placeholder="Used for the Open WhatsApp button" />
+        <span class="err-msg"></span>
+      </div>
+
+      <div class="field" id="f-email">
+        <label for="business_email">Business Email</label>
+        <input type="email" id="business_email" placeholder="Optional" />
+      </div>
+      <div class="field" id="f-website">
+        <label for="website">Website</label>
+        <input type="text" id="website" placeholder="Optional" />
+      </div>
+
+      <div class="field full" id="f-address">
+        <label for="address">Business Address</label>
+        <input type="text" id="address" placeholder="Shop / street address" />
+      </div>
+      <div class="field" id="f-city">
+        <label for="city">City *</label>
+        <input type="text" id="city" placeholder="e.g. Hisar" />
+        <span class="err-msg"></span>
+      </div>
+      <div class="field" id="f-state">
+        <label for="state">State *</label>
+        <input type="text" id="state" placeholder="e.g. Haryana" />
+        <span class="err-msg"></span>
+      </div>
+
+      <div class="field" id="f-instagram">
+        <label for="instagram">Instagram</label>
+        <input type="text" id="instagram" placeholder="@yourbusiness" />
+      </div>
+      <div class="field" id="f-facebook">
+        <label for="facebook">Facebook</label>
+        <input type="text" id="facebook" placeholder="Page name or link" />
+      </div>
+
+      <div class="field full" id="f-description">
+        <label for="description">Business Description</label>
+        <textarea id="description" rows="3" placeholder="What makes your business special?"></textarea>
+      </div>
+      <div class="field full" id="f-products">
+        <label for="products_services">Products / Services *</label>
+        <textarea id="products_services" rows="2" placeholder="e.g. Sweets, snacks, festive gift boxes"></textarea>
+        <span class="err-msg"></span>
+      </div>
+      <div class="field full" id="f-audience">
+        <label for="target_customers">Target Customers</label>
+        <input type="text" id="target_customers" placeholder="e.g. Families in the local neighbourhood" />
+      </div>
+
+      <div class="field" id="f-logo">
+        <label for="logo_url">Business Logo (optional)</label>
+        <input type="file" id="logo_url" accept="image/*" />
+        <span class="hint">Stored in Supabase Storage. You can skip this for now.</span>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:22px;">
+      <a href="/dashboard.html" style="font-size:0.85rem; color:var(--text-muted);">Skip for now</a>
+      <button type="submit" class="btn btn-primary" id="submitBtn">Save &amp; Go to Dashboard</button>
+    </div>
+  </form>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="/js/config.js" defer></script>
+<script src="/js/supabaseClient.js" defer></script>
+<script src="/js/utils.js" defer></script>
+<script src="/js/onboarding.js" defer></script>
+</body>
+</html>
